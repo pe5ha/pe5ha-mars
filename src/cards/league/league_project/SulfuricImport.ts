@@ -22,7 +22,7 @@ export class SulfuricImport extends Card implements IProjectCard {
   constructor() {
     super({
       cardType: CardType.EVENT,
-      name: CardName.SULFURIC_IMPORT,
+      name: CardName.SULPHURIC_IMPORT,
       tags: [Tags.SPACE],
       cost: 11,
 
