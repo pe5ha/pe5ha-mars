@@ -131,7 +131,7 @@ try {
   throw err;
 }
 
-console.log('version 0.10');
+console.log('version 0.15');
 
 server.listen(process.env.PORT || 8080);
 

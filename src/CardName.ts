@@ -743,6 +743,9 @@ export enum CardName {
     BUILD_COLONY_STANDARD_PROJECT_REBALANCED = 'Colony(⚖)',
 
     // League cards
+    // Corps
+    APOPHIS = 'Apophis',
+    SCAVENGERS = 'Scavengers',
     // Projects
     DELAYED_ENTRY = 'Delayed Entry',
     FIRE_SALE = 'Fire Sale',
@@ -762,7 +765,15 @@ export enum CardName {
     TITANIUM_ISOTOPES = 'Titanium Isotopes',
     STEEL_CASTING = 'Steel Casting',
     INVESTMENT_BANKS = 'Investment Banks',
+    NOMON_NOCRY_INSURANCE = 'NoMon NoCry Insurance',
     DACTYL_AND_IDA = 'Dactyl and Ida',
-    SULFURIC_IMPORT = 'Sulfuric Import',
+    SULPHURIC_IMPORT = 'Sulphuric Import',
     WORLD_GOVERNMENT_PARTNERSHIP = 'World Government Partnership',
+    PHOBOS_FALLS = 'Phobos Falls',
+    PHOBOS_SPACE_HAVEN_LEAGUE = 'Phobos Space Haven(L)',
+    DNA_EXTRACTION_FROM_SOIL = 'DNA Extraction from Soil',
+    SPACE_DEBRIS_COLLECTION = 'Space Debris Collection',
+    MEDIA_AND_TECHNOLOGY_STUDIES = 'Media and Technology Studies',
+    SAVE_OUR_SHIP = 'Save our Ship',
+    SOIL_ENHANCERS = 'Soil Enhancers',
 }
