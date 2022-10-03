@@ -139,7 +139,7 @@ const defaultGameSetting: CreateGameModel = {
   aresExtension: false,
   politicalAgendasExtension: AgendaStyle.STANDARD,
   moonExpansion: false,
-  undoOption: false,
+  undoOption: true,
   showTimers: true,
   fastModeOption: false,
   removeNegativeGlobalEventsOption: false,
@@ -157,8 +157,8 @@ const defaultGameSetting: CreateGameModel = {
   escapeVelocityThreshold: 30,
   escapeVelocityPeriod: 1,
   escapeVelocityPenalty: 1,
-  rebalancedExtension: true,
-  leagueExtension: true,
+  rebalancedExtension: false,
+  leagueExtension: false,
   showAllGlobalEvents: false,
 };
 

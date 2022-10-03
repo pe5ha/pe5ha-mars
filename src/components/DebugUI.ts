@@ -64,12 +64,12 @@ export const DebugUI = Vue.component('debug-ui', {
       venusNext: true,
       colonies: true,
       turmoil: true,
-      community: true,
-      ares: true,
-      moon: true,
+      community: false,
+      ares: false,
+      moon: false,
       promo: true,
-      rebalanced: true,
-      league: true,
+      rebalanced: false,
+      league: false,
     } as DebugUIModel;
   },
   mounted() {

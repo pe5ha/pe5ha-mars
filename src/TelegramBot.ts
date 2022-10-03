@@ -2,34 +2,6 @@ import {Player} from './Player';
 import {Game} from './Game';
 import fetch from 'node-fetch';
 
-// sending push about player turns via telegram bot
-export function sendTelegramPush(player: Player, message: String = ', your turn! 🪐') {
-  if (!player.telegramID) return;
-  const chat_id = player.telegramID;
-  const text = player.name + message;
-  sendMessage(chat_id, text);
-}
-
-export function sendGameResultsInTelegramChats(game: Game) {
-  let text = '';
-  game.getPlayers().forEach((player)=>{
-    text+=player.getVictoryPoints().total+' '+player.name+'%0A';
-    sendMessage(player.telegramID, player.name+', the game is over.');
-  });
-
-  const chat_id = process.env.BOT_GROUP_CHAT_ID;
-  sendMessage(chat_id, text);
-}
-
-// sending notice about player turns via telegram bot
-export function sendTelegramNoticeGameStart(player: Player) {
-  if (!player.telegramID) return;
-  const chat_id = player.telegramID;
-  const notice = ', new game start! 🚀 Your link: '+process.env.HOST+'/player?id='+player.id;
-  const text = player.name + notice;
-  sendMessage(chat_id, text);
-}
-
 // sending notice about player turns via telegram bot
 export function sendTelegramNotice(player: Player) {
   if (!player.telegramID) return;
@@ -42,11 +14,7 @@ export function sendTelegramNotice(player: Player) {
     if (data.result.message_id) player.lastNoticeMessageId = data.result.message_id;
     console.log(player.name+': lastNoticeMessageId = '+player.lastNoticeMessageId);
 
-    console.log('Saving game after Telegram notice-');
     player.game.save(); // specially to save `player.lastNoticeMessageId` for pretty telegram notices >:)
-    // player.game.getPlayers().forEach((p) => {
-    //   if(p.timer.isRunning())
-    // });
   });
 }
 
@@ -57,6 +25,26 @@ export function deleteTelegramNotice(player: Player) {
   const message_id = player.lastNoticeMessageId;
   deleteMessage(chat_id, message_id);
   player.lastNoticeMessageId = -1;
+}
+
+// sending notice about game start
+export function sendTelegramNoticeGameStart(player: Player) {
+  if (!player.telegramID) return;
+  const chat_id = player.telegramID;
+  const notice = ', new game start! 🚀 Your link: '+process.env.HOST+'/player?id='+player.id;
+  const text = player.name + notice;
+  sendMessage(chat_id, text);
+}
+
+export function sendGameResultsInTelegramChats(game: Game) {
+  let text = '';
+  game.getPlayers().forEach((player)=>{
+    text+=player.getVictoryPoints().total+' '+player.name+'%0A';
+    sendMessage(player.telegramID, player.name+', the game is over.');
+  });
+
+  const chat_id = process.env.BOT_GROUP_CHAT_ID;
+  sendMessage(chat_id, text);
 }
 
 async function sendMessage(chat_id: String|undefined, text: String|undefined) {
