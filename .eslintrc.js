@@ -21,7 +21,7 @@ module.exports = {
     'eqeqeq': ['error', 'always'],
     'max-len': 'off',
     'no-throw-literal': 'off',
-    'no-unused-vars': 'off',
+    'no-unused-vars': 'on',
     'no-var': 'error',
     'prefer-const': 'error',
     'indent': ['error', 2],
