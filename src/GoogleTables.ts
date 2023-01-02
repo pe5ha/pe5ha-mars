@@ -4,7 +4,7 @@
 
 
 // function sendGameResults(game: Game){
-  
+
 //   let content = {
 //       gameId: game.id,
 //       playersNumber: game.getPlayers().length,
@@ -22,4 +22,3 @@
 //     body: JSON.stringify(content)
 //   });
 // }
-  
