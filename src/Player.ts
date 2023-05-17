@@ -76,7 +76,7 @@ import {LawSuit} from './cards/promo/LawSuit';
 import {CrashSiteCleanup} from './cards/promo/CrashSiteCleanup';
 import {AridorRebalanced} from './cards/rebalanced/rebalanced_corporation/AridorRebalanced';
 import {StormCraftIncorporatedRebalancedDeferredAction} from './deferredActions/StormCraftIncorporatedRebalancedDeferredAction';
-import {sendTelegramNotice, deleteTelegramNotice} from './TelegramBot';
+import { deleteTurnNotice, sendTurnNotice } from './GoogleTables';
 
 export type PlayerId = string;
 export type Password = string;
@@ -2218,7 +2218,7 @@ export class Player implements ISerializable<SerializedPlayer> {
       this.runInput(input, waitingFor);
       waitingForCb();
       // telegram delete previos notice (if the player has finishedhis moves)
-      if (!this.timer.isRunning()) deleteTelegramNotice(this);
+      if (!this.timer.isRunning()) deleteTurnNotice(this);
     } catch (err) {
       this.setWaitingFor(waitingFor, waitingForCb);
       throw err;
@@ -2232,8 +2232,8 @@ export class Player implements ISerializable<SerializedPlayer> {
     this.timer.start();
     // telegram notice [
     const timeDif = this.timer.getLastStopDiff();
-    const actionTimeDif = process.env.ACTION_TIME_DIFF_MS === undefined ? 10000 : process.env.ACTION_TIME_DIFF_MS;
-    if (timeDif>actionTimeDif) sendTelegramNotice(this);
+    const actionTimeDif = process.env.ACTION_TIME_DIFF_MS === undefined ? 10000 : parseInt(process.env.ACTION_TIME_DIFF_MS);
+    if (timeDif>actionTimeDif) sendTurnNotice(this);
     // ]
 
     this.waitingFor = input;
