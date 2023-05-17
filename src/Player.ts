@@ -76,7 +76,7 @@ import {LawSuit} from './cards/promo/LawSuit';
 import {CrashSiteCleanup} from './cards/promo/CrashSiteCleanup';
 import {AridorRebalanced} from './cards/rebalanced/rebalanced_corporation/AridorRebalanced';
 import {StormCraftIncorporatedRebalancedDeferredAction} from './deferredActions/StormCraftIncorporatedRebalancedDeferredAction';
-import { deleteTurnNotice, sendTurnNotice } from './GoogleTables';
+import {deleteTurnNotice, sendTurnNotice} from './GoogleTables';
 
 export type PlayerId = string;
 export type Password = string;

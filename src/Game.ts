@@ -75,7 +75,7 @@ import {AddResourcesToCard} from './deferredActions/AddResourcesToCard';
 import {AphroditeRebalanced} from './cards/rebalanced/rebalanced_corporation/AphroditeRebalanced';
 import {LogType} from './deferredActions/DrawCards';
 import {PartyName} from './turmoil/parties/PartyName';
-import { sendGameResults, sendNoticeGameStart } from './GoogleTables';
+import {sendGameResults, sendNoticeGameStart} from './GoogleTables';
 
 
 export type GameId = string;
