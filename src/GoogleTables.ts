@@ -18,6 +18,7 @@ export function deleteTurnNotice(player: Player) {
   if (!player.telegramID) return;
   const content = {
     gameId: player.game.id,
+    player_name: player.name,
     chat_id: player.telegramID,
     type: 'TURN_COMPLETE',
   };
