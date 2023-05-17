@@ -8,6 +8,7 @@ export function sendTurnNotice(player: Player) {
   const content = {
     gameId: player.game.id,
     chat_id: player.telegramID,
+    player_name: player.name,
     type: 'TURN',
   };
   sendGASrequest(content);
@@ -18,7 +19,6 @@ export function deleteTurnNotice(player: Player) {
   if (!player.telegramID) return;
   const content = {
     gameId: player.game.id,
-    player_name: player.name,
     chat_id: player.telegramID,
     type: 'TURN_COMPLETE',
   };
